@@ -19,3 +19,25 @@ class Smoothie {
         `;
     }
 }
+
+// Handle form submission and create smoothie object
+document.getElementById("smoothieForm").addEventListener("submit", (e) => {
+    e.preventDefault(); // Prevent page reload
+
+    // Get values from form
+    let size = document.getElementById("size").value;
+    let base = document.getElementById("base").value;
+    let sweetness = document.getElementById("sweetness").value;
+
+    // Get selected ingredients
+    let ingredients = [];
+    document.querySelectorAll("input[type='checkbox']:checked").forEach(cb => {
+        ingredients.push(cb.value);
+    });
+
+    // Create smoothie object
+    let smoothie = new Smoothie(size, base, ingredients, sweetness);
+
+    // Display smoothie description on page
+    document.getElementById("result").innerHTML = smoothie.describe();
+});
