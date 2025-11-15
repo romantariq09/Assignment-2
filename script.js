@@ -49,14 +49,24 @@ class Smoothie {
         this.ingredients = ingredients;
         this.sweetness = sweetness;
     }
+    
 
     // Price Calculation
     getPrice() {
-        const sizePrice = {
-            "Small": 2,
-            "Medium": 4,
-            "Large": 6,
-        };
+      const sizePrices = {
+    Small: 2,
+    Medium: 4,
+    Large: 6
+};
+
+const ingredientPrices = {
+    Banana: 1,
+    Strawberries: 1,
+    Blueberries: 1,
+    Mango: 1,
+    Spinach: 1
+};
+
 
         let ingredientPrice = this.ingredients.length * 1; // $1 each
 
