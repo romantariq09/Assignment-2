@@ -18,3 +18,15 @@ h1 {
     border-radius: 15px;
     box-shadow: 0 4px 10px #0003;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkbox-group {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
