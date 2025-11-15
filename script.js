@@ -35,8 +35,7 @@ class Smoothie {
 }
 
 // Handle form submission and create smoothie object
-document.getElementById("smoothieForm").addEventListener("submit", (e) => {
-    e.preventDefault(); // Prevent page reload
+document.getElementById("orderBtn").addEventListener("click", () => {
 
     // Get values
     let size = document.getElementById("size").value;
