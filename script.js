@@ -24,12 +24,12 @@ class Smoothie {
 document.getElementById("smoothieForm").addEventListener("submit", (e) => {
     e.preventDefault(); // Prevent page reload
 
-    // Get values from form
+    // Get values
     let size = document.getElementById("size").value;
     let base = document.getElementById("base").value;
     let sweetness = document.getElementById("sweetness").value;
 
-    // Get selected ingredients
+    // selected ingredients
     let ingredients = [];
     document.querySelectorAll("input[type='checkbox']:checked").forEach(cb => {
         ingredients.push(cb.value);
@@ -38,6 +38,39 @@ document.getElementById("smoothieForm").addEventListener("submit", (e) => {
     // Create smoothie object
     let smoothie = new Smoothie(size, base, ingredients, sweetness);
 
-    // Display smoothie description on page
+    // Display smoothie description 
     document.getElementById("result").innerHTML = smoothie.describe();
 });
+
+class Smoothie {
+    constructor(size, base, ingredients, sweetness) {
+        this.size = size;
+        this.base = base;
+        this.ingredients = ingredients;
+        this.sweetness = sweetness;
+    }
+
+    // Price Calculation
+    getPrice() {
+        const sizePrice = {
+            "Small": 2,
+            "Medium": 4,
+            "Large": 6,
+        };
+
+        let ingredientPrice = this.ingredients.length * 1; // $1 each
+
+        return sizePrice[this.size] + ingredientPrice;
+    }
+
+    describe() {
+        return `
+            <h2>Your Smoothie </h2>
+            <p><strong>Size:</strong> ${this.size}</p>
+            <p><strong>Base:</strong> ${this.base}</p>
+            <p><strong>Ingredients:</strong> ${this.ingredients.join(", ")}</p>
+            <p><strong>Sweetness:</strong> ${this.sweetness}</p>
+            <h3>Total Price: $${this.getPrice()}</h3>
+        `;
+    }
+}
