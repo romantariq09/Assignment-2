@@ -6,7 +6,21 @@ class Smoothie {
         this.ingredients = ingredients;
         this.sweetness = sweetness;
     }
+  // price calculation for the smoothie
+    getPrice() {
+        // base price from size
+        let sizeCost = sizePrices[this.size] || 0;
 
+        // add up ingredient prices
+        let ingredientCost = 0;
+        this.ingredients.forEach(item => {
+            if (ingredientPrices[item]) {
+                ingredientCost += ingredientPrices[item];
+            }
+        });
+
+        return sizeCost + ingredientCost;
+    }
 
 // description of the smoothie
     describe() {
@@ -72,16 +86,4 @@ const ingredientPrices = {
         return sizePrice[this.size] + ingredientPrice;
     }
 
-    describe() {
-        return `
-            <h2>Your Smoothie </h2>
-            <p><strong>Size:</strong> ${this.size}</p>
-            <p><strong>Base:</strong> ${this.base}</p>
-            <p><strong>Ingredients:</strong> ${this.ingredients.join(", ")}</p>
-            <p><strong>Sweetness:</strong> ${this.sweetness}</p>
-            <h3>Total Price: $${this.getPrice()}</h3>
-        `;
-    }
-}
-
-
+   
