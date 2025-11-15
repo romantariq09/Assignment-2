@@ -52,17 +52,9 @@ document.getElementById("smoothieForm").addEventListener("submit", (e) => {
     // Create smoothie object
     let smoothie = new Smoothie(size, base, ingredients, sweetness);
 
-    // Display smoothie description 
+   // Display smoothie description + bill
     document.getElementById("result").innerHTML = smoothie.describe();
 });
-
-class Smoothie {
-    constructor(size, base, ingredients, sweetness) {
-        this.size = size;
-        this.base = base;
-        this.ingredients = ingredients;
-        this.sweetness = sweetness;
-    }
 
     // Price Calculation
     getPrice() {
@@ -79,11 +71,3 @@ const ingredientPrices = {
     Mango: 1,
     Spinach: 1
 };
-
-
-        let ingredientPrice = this.ingredients.length * 1; // $1 each
-
-        return sizePrice[this.size] + ingredientPrice;
-    }
-
-   
