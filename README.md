@@ -1,2 +1,3 @@
-Live demo: https://github.com/romantariq09/Assignment-2.git
+Live demo: https://romantariq09.github.io/Assignment-2/
+
 
