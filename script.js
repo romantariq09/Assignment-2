@@ -49,7 +49,6 @@ class Smoothie {
         this.ingredients = ingredients;
         this.sweetness = sweetness;
     }
-    
 
     // Price Calculation
     getPrice() {
